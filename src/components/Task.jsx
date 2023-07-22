@@ -17,7 +17,8 @@ export const Task = ({ task, toggleStatus, deleteTask }) => {
           type="checkbox"
           checked={task.completed}
           onChange={() => {
-            toggleStatus(task.id);
+              toggleStatus(task.id);
+              
           }}
         />
         <button
