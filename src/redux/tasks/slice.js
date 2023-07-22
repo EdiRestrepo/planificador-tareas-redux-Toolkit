@@ -13,9 +13,6 @@ const tasksSlice = createSlice({
     initialState:  taskInitialState,
     reducers:{
         createTask(state, action){
-            if(state.indexOf(task => task.text ===action.payload)){
-                
-            }
             state.push({id: nanoid(), text: action.payload, completed: false})
           },
         toggleTask(state, {payload}){
