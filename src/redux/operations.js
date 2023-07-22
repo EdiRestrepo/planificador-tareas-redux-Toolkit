@@ -19,16 +19,17 @@ export const addTask = createAsyncThunk(
   "tasks/addTask",
   async (text, thunkAPI) => {
     try {
-        const data = await fetch(`${BASE_URL}/tasks`, {
-            method: "POST",
-            body: JSON.stringify({
-                text,
-                completed: false,
-            }),
-            headers: {
-                "content-type": "application/json",
-            }
-        });
+      const data = await fetch(`${BASE_URL}/tasks`, {
+        method: "POST",
+        body: JSON.stringify({
+          text,
+          completed: false,
+          created_at: new Date().toISOString(),
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
       const response = await data.json();
       return response;
     } catch (e) {

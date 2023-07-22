@@ -11,13 +11,6 @@ const tasksSlice = createSlice({
   name: "tasks",
   initialState: taskInitialState,
   reducers: {
-    createTask(state, action) {
-      state.items.push({
-        id: nanoid(),
-        text: action.payload,
-        completed: false,
-      });
-    },
     toggleTask(state, { payload }) {
       for (let task of state.items) {
         if (task.id === payload) {
@@ -58,7 +51,7 @@ const tasksSlice = createSlice({
   },
 });
 
-export const {createTask,toggleTask,deleteTask} = tasksSlice.actions;
+export const {toggleTask,deleteTask} = tasksSlice.actions;
 export const taskReducer = tasksSlice.reducer;
 
 
