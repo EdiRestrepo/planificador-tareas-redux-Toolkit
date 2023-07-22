@@ -2,11 +2,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import { updateFilter } from "../redux/filters/actions";
 import { statusFilters } from "../redux/constants";
+import { getFiltersStatus } from "../redux/filters/selectors";
 // Importamos el objeto del valor del filtro
 
 const StatusFilter = () => {
   // Obtenemos el valor del filtro del estado de Redux
-  const filter = useSelector((state) => state.filters.status);
+  const filter = useSelector(getFiltersStatus);
   const dispatch = useDispatch();
 
   const handleClick = (filter) => {

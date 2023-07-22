@@ -1,0 +1,1 @@
+export const getFiltersStatus = (state) => state.filters.status;

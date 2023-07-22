@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { createTask } from "../redux/tasks/slice";
 import { setNotification } from "../redux/notifications/slice";
+import { getAllTasks } from "../redux/tasks/selectors";
+import { addTask } from "../redux/operations";
 
 const AddTask = () => {
 
   const dispatch = useDispatch();
-  const tasks = useSelector( state => state.tasks)
+  const tasks = useSelector(getAllTasks)
     
   const handleCreateTastk = (e) => {
     e.preventDefault();
@@ -14,7 +16,7 @@ const AddTask = () => {
     console.log(text);
     if (text.value &&
       matchingTasks.length === 0) {
-      dispatch(createTask(text.value));
+      dispatch(addTask(text.value));
       dispatch(
         setNotification({
           type: "success",
